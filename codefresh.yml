@@ -1,7 +1,7 @@
 version: '1.0'
 steps:
    deploy_to_swarm:
-     image: ncodefresh/remote-docker:azure
+     image: ncodefresh/remote-docker:ssh-tunnel
      working_directory: ${{main_clone}}
      commands:
        - rdocker ${{RDOCKER_HOST}} ${{SSH_PORT}} docker run -d --name ${{CONTAINER_NAME}} -p 80:80 ${{IMAGE_NAME}}
